@@ -1,0 +1,7 @@
+[compute_all]
+192.168.0.123
+
+[compute_all:vars]
+#ansible_ssh_user=cloud
+# ansible_ssh_pass=cloud123
+# ansible_sudo_pass=cloud123

@@ -1,0 +1,11 @@
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+#http_proxy="http://192.168.0.252:3128"
+#https_proxy="http://192.168.0.252:3128"
+#ftp_proxy="http://192.168.0.252:3128"
+#socks_proxy="http://192.168.0.252:3128"
+# http_proxy="http://proxy-prc.intel.com:911/"
+# https_proxy="https://proxy-prc.intel.com:911/"
+# ftp_proxy="ftp://proxy-prc.intel.com:911/"
+# socks_proxy="socks://proxy-prc.intel.com:1080/"
+# no_proxy=".intel.com,10.238.153.125,10.238.153.136,192.168.0.252"
+

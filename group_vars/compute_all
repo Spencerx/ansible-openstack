@@ -1,0 +1,65 @@
+---
+# Vars for role os_keystone
+debug: True
+verbose: True
+
+controller_alias: controller
+#compute_alias: otcloud-computer1
+neutron_alias: network
+
+rabbitmq_server: "{{ controller_alias }}"
+rabbitmq_password: guest
+
+controller_management_ip: 192.168.0.100
+neutron_management_ip: 192.168.0.105
+
+# compute_tunels_ip: 192.168.0.142
+neutron_tunels_ip: 192.168.0.135
+
+neutron_external_ip: 10.238.153.113
+
+# vars for conf
+verbose: True
+debug: True
+
+# vars for keystone
+endpoint_host: controller
+
+keystone_auth_uri: http://{{ endpoint_host }}:5000/v2.0
+keystone_identity_uri: http://{{ endpoint_host }}:35357
+
+admin_tenant_name: service
+
+nova_admin_user: nova
+nova_admin_password: nova
+
+neutron_admin_user: neutron
+neutron_admin_password: neutron
+
+# vars for neutron
+neutron_url: http://{{ endpoint_host }}:9696
+neutron_admin_auth_url: http://{{ endpoint_host }}:35357/v2.0
+
+# vars for vns 
+external_host: otcloud-controller
+vncserver_listen: 0.0.0.0
+novncproxy_base_url : http://{{ external_host }}.bj.intel.com:6080/vnc_auto.html
+
+# vars for ceph
+rbd_user: cinder
+rbd_secret_uuid: 04af79fe-2cf7-49e3-9d7d-7cf6d0bef0bb
+rbd_cinder_key: AQAgiy9VehGvDBAAo6okpEawJy/HAon6ud4QxA==
+
+#######
+subnet: 192.168.0.0
+netmask: 255.255.255.0
+ntp_server: 192.168.0.252
+
+# vars for proxy
+proxy_env:
+  http_proxy: http://192.168.0.252:3128
+  https_proxy: http://192.168.0.252:3128
+  ftp_proxy: ftp://192.168.0.252:3128
+  socks_proxy: socks://192.168.0.252:3128/
+  no_proxy: .intel.com,localhost,controller,network
+

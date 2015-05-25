@@ -1,0 +1,3 @@
+---
+- include: install_ceph_packages.yml
+- include: configure_libvirt.yml

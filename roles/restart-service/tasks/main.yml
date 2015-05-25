@@ -1,0 +1,15 @@
+---
+- name: Restart all services
+  service:
+    name: "{{ item }}"
+    state: restarted
+    pattern: "{{ item }}"
+  with_items:
+    - ntp
+    - openvswitch-switch
+    - neutron-plugin-openvswitch-agent
+    - nova-compute
+    - libvirt-bin
+  failed_when: false
+
+#-name: restart libvirt-bin

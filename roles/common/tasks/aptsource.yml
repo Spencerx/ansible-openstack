@@ -1,0 +1,6 @@
+---
+- name: apt source
+  copy: src=sources.list dest=/etc/apt/sources.list
+
+- name: update apt cache and upgrade software packages to latest version
+  apt: update_cache=yes upgrade=dist force=yes

@@ -1,0 +1,11 @@
+---
+# handlers file for nova
+- name: Restart nova services
+  service:
+    name: "{{ item }}"
+    state: restarted
+    pattern: "{{ item }}"
+  with_items:
+    - nova-compute
+  failed_when: false
+

@@ -1,0 +1,16 @@
+---
+# tasks file for libvirt on cpmpute node 
+- name: copy ceph config files
+  copy: src={{item}} dest=/etc/ceph/{{item}} owner=root group=root mode=0644
+  with_items:
+    - ceph.conf
+    - ceph.client.cinder.keyring
+
+- name: setup libvirt secret key
+  copy: src=secret.xml dest=/home/cloud/secret.xml
+- name: secret-define
+  command: /usr/bin/virsh secret-define --file /home/cloud/secret.xml
+- name: secret-set-value
+  command: /usr/bin/virsh secret-set-value --secret {{rbd_secret_uuid}} --base64 {{rbd_cinder_key}}
+- name: clean secret file
+  command: /bin/rm /home/cloud/secret.xml

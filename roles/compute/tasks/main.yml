@@ -1,0 +1,49 @@
+---
+- name: install nova compute packages 
+  apt: name={{ item }} force=yes state=latest
+  register: install_packages
+  until: install_packages|success
+  with_items:
+    - "nova-compute"
+    - "sysfsutils"
+
+- name: configure nova
+  template: src=nova.conf.js dest=/etc/nova/nova.conf
+#  notify:
+#    - Restart nova services
+  tags: conf_nova
+
+- name: ensure nova.sqlite is deleted
+  file: dest=/var/lib/nova/nova.sqlite state=absent
+
+- name: copy nova-compute.conf file
+  copy: src=nova-compute.conf dest=/etc/nova/nova-compute.conf owner=nova group=nova mode=0600
+
+- name: /etc/libvirt/libvirtd.conf change
+  copy: src=libvirtd.conf dest=/etc/libvirt/libvirtd.conf
+
+- name: /etc/init/libvirt-bin.conf change
+  lineinfile: dest=/etc/init/libvirt-bin.conf regexp="^env libvirtd_opts=" line='env libvirtd_opts="-d -l"'
+
+- name: /etc/default/libvirt-bin change
+  lineinfile: dest=/etc/default/libvirt-bin regexp="^libvirtd_opts=" line='libvirtd_opts="-d -l"'
+
+- name: nova patch for cpu compatibility
+  copy: src=driver.py dest=/usr/lib/python2.7/dist-packages/nova/virt/libvirt/driver.py
+
+- name: enable nova login
+  command: usermod -s /bin/bash nova
+
+- name: create .ssh directory
+  file: dest=/var/lib/nova/.ssh state=directory owner=nova group=nova
+- name: copy .ssh files for nova
+  copy: src={{ item.name }} dest=/var/lib/nova/.ssh owner=nova group=nova mode={{ item.mode }}
+  with_items:
+    - {name: id_rsa, mode: 600}
+    - {name: config, mode: 644}
+    - {name: authorized_keys, mode: 644}
+
+#- name: ensure compute service is started and enabled
+#  service: name=nova-compute state=running enabled=yes
+
+

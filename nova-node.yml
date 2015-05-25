@@ -1,0 +1,11 @@
+---
+- hosts: compute_all
+  remote_user: cloud
+  sudo: yes
+  gather_facts: True
+  roles:
+   - common
+   - compute
+   - neutron-on-compute
+   - ceph-on-compute
+   - restart-service

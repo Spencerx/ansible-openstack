@@ -1,0 +1,31 @@
+127.0.0.1       localhost
+
+# controller
+192.168.0.100 controller
+
+# neutron
+192.168.0.105 network
+
+# compute1
+192.168.0.121 compute1
+192.168.0.122 compute1
+192.168.0.123 compute1
+
+# block
+192.168.0.52 block2
+192.168.0.53 block3
+192.168.0.54 block4
+
+# formal names
+
+192.168.0.252 otcloud-gate
+192.168.0.100 otcloud-controller
+192.168.0.105 otcloud-neutron
+
+192.168.0.121 otcloud-compute1
+192.168.0.122 otcloud-compute2
+192.168.0.123 otcloud-compute3
+
+192.168.0.52 otcloud-storage2
+192.168.0.53 otcloud-storage3
+192.168.0.54 otcloud-storage4

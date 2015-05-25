@@ -1,0 +1,12 @@
+
+deb [arch=amd64] http://192.168.0.252/cobbler/repo_mirror/ubuntu-server trusty main restricted universe multiverse
+
+deb [arch=amd64] http://192.168.0.252/cobbler/repo_mirror/ubuntu-server trusty-updates main restricted universe multiverse
+
+deb [arch=amd64] http://192.168.0.252/cobbler/repo_mirror/ubuntu-server trusty-security main restricted universe multiverse
+
+#deb http://ubuntu-cloud.archive.canonical.com/ubuntu trusty-updates/juno main
+deb [arch=amd64] http://192.168.0.252/cobbler/repo_mirror/cloud-archive trusty-updates/juno main
+
+#deb http://eu.ceph.com/debian-hammer/ trusty main
+deb [arch=amd64] http://192.168.0.252/cobbler/repo_mirror/ceph-archive trusty main

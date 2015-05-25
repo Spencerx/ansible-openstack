@@ -1,0 +1,14 @@
+---
+# tasks file for os_neutron
+- name: Generate neutron Config
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: "neutron.conf.j2", dest: "/etc/neutron/neutron.conf" }
+    - { src: "plugins/ml2/ml2_conf.ini.j2", dest: "/etc/neutron/plugins/ml2/ml2_conf.ini" }
+#  notify:
+#    - Restart neutron services
+#    - Restart nova services
+  tags:
+    - neutron-config

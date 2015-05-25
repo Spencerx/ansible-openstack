@@ -1,0 +1,4 @@
+---
+- name: configure proxy 
+  copy: src=environment dest=/etc/environment owner=root group=root mode=0644
+  tags: env

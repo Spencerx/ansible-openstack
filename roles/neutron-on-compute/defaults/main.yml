@@ -1,0 +1,16 @@
+---
+# defaults file for os_neutron
+openstack_kernel_options:
+  - { key: 'net.ipv4.conf.all.rp_filter', value: 0 }
+  - { key: 'net.ipv4.conf.default.rp_filter', value: 0 }
+
+neutron_compute_apt_packages:
+  - neutron-plugin-ml2
+  - neutron-plugin-openvswitch-agent
+
+neutron_service_user_name: neutron
+neutron_service_password: neutron
+
+neutron_service_names:
+  - openvswitch-switch
+  - neutron-plugin-openvswitch-agent

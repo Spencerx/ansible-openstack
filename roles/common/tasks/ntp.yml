@@ -1,0 +1,17 @@
+---
+- name: install ntp
+  apt: name=ntp state=latest
+  register: install_packages
+  until: install_packages|success
+  tags: ntp
+
+- name: delete old server
+  lineinfile: dest=/etc/ntp.conf regexp='^server .*' state=absent
+
+- name: define subnet permissions
+  lineinfile: dest=/etc/ntp.conf line="restrict {{subnet}} mask {{netmask}} nomodify notrap"
+
+- name: add new server
+  lineinfile: dest=/etc/ntp.conf line='server {{ntp_server}} iburst'
+#  notify: Restart ntp service
+

@@ -1,0 +1,4 @@
+---
+- include: kernel_networking.yml
+- include: install_neutron_packages.yml
+- include: configure_neutron.yml

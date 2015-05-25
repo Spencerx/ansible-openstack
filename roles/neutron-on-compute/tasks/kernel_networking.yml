@@ -1,0 +1,13 @@
+---
+# tasks file for os_neutron
+- name: Adding new system tuning
+  sysctl:
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+    sysctl_set: "{{ item.set|default('yes') }}"
+    state: "{{ item.state|default('present') }}"
+    reload: "{{ item.reload|default('yes') }}"
+  with_items: openstack_kernel_options
+  ignore_errors: true
+  tags:
+    - openstack-host-kernel-tuning

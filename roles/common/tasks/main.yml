@@ -1,0 +1,6 @@
+---
+- include: init.yml
+- include: aptsource.yml
+- include: ntp.yml
+- include: name.yml
+- include: proxy.yml

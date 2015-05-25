@@ -1,0 +1,19 @@
+---
+# tasks file for ceph on compute node 
+- name: Install the ceph-common packages for compute node
+  apt:
+    pkg: ceph-common 
+    state: latest
+    #update_cache: yes
+    cache_valid_time: 600
+    force: yes
+  register: install_packages
+  until: install_packages|success
+  retries: 5
+  delay: 2
+  tags:
+     -  ceph-compute-apt-packages
+
+- name: copy ceph_argparse.py for ceph
+  copy: src=ceph_argparse.py dest=/usr/lib/python2.7/dist-packages/ceph_argparse.py
+

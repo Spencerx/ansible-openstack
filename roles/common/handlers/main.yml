@@ -1,0 +1,7 @@
+---
+# handlers file for os_init
+- name: Restart ntp service
+  service:
+    name: ntp
+    state: restarted
+  failed_when: false

@@ -1,0 +1,26 @@
+[DEFAULT]
+verbose = {{ verbose }}
+debug = {{ debug }}
+
+## RabbitMQ
+rpc_backend = rabbit
+rabbit_host = {{ rabbitmq_server }}
+rabbit_password = {{ rabbitmq_password }}
+
+auth_strategy = keystone
+
+core_plugin = ml2
+service_plugins = router
+allow_overlapping_ips = True
+
+lock_path = $state_path/lock
+
+[agent]
+root_helper = sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf
+
+[keystone_authtoken]
+auth_uri = {{ keystone_auth_uri }}
+identity_uri = {{ keystone_identity_uri }} 
+admin_tenant_name = {{ admin_tenant_name }}
+admin_user = {{ neutron_admin_user }}
+admin_password = {{ neutron_admin_password }}
