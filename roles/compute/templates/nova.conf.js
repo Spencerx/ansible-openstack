@@ -57,9 +57,9 @@ admin_tenant_name = {{ admin_tenant_name }}
 admin_username = {{ neutron_admin_user }}
 admin_password = {{ neutron_admin_password }}
 
-[libvirt]
-images_type = rbd
-images_rbd_pool = vms
-images_rbd_ceph_conf = /etc/ceph/ceph.conf
-rbd_user = {{ rbd_user }} 
-rbd_secret_uuid = {{ rbd_secret_uuid }}
+# [libvirt]
+# images_type = rbd
+# images_rbd_pool = vms
+# images_rbd_ceph_conf = /etc/ceph/ceph.conf
+# rbd_user = {{ rbd_user }} 
+# rbd_secret_uuid = {{ rbd_secret_uuid }}
