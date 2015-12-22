@@ -1,0 +1,7 @@
+---
+# variables for compute3
+compute_management_net: em2
+compute_management_ip: 192.168.0.125
+tunnel_net: em2
+compute_tunnel_ip: 192.168.0.125
+compute_alias: otcloud-compute5

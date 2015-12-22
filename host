@@ -1,5 +1,5 @@
 [compute_all]
-192.168.0.122
+192.168.0.124
 
 [cloud:vars]
 ansible_ssh_user=cloud

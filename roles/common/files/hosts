@@ -8,8 +8,12 @@
 
 # compute1
 192.168.0.121 compute1
-192.168.0.122 compute1
-192.168.0.123 compute1
+192.168.0.122 compute2
+192.168.0.123 compute3
+192.168.0.124 compute4
+192.168.0.125 compute5
+192.168.0.126 compute6
+192.168.0.127 compute7
 
 # block
 192.168.0.52 block2
@@ -25,6 +29,10 @@
 192.168.0.121 otcloud-compute1
 192.168.0.122 otcloud-compute2
 192.168.0.123 otcloud-compute3
+192.168.0.124 otcloud-compute4
+192.168.0.125 otcloud-compute5
+192.168.0.126 otcloud-compute6
+192.168.0.127 otcloud-compute7
 
 192.168.0.52 otcloud-storage2
 192.168.0.53 otcloud-storage3
